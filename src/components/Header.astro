@@ -2,12 +2,14 @@
 import LanguageSelector from './LenguageSelector.astro';
 ---
 
-<header class ="flex justify-center items-center py-4 md:py-5 w-full xl:w-[1120px] mx-auto px-4">
-    <nav class = "flex flex-row gap-x-3 md:gap-x-6 lg:gap-x-10 opacity-80 text-xs sm:text-sm md:text-base items-center flex-wrap justify-center">
-        <a href="#home" class="hover:opacity-100 transition-opacity">Home</a>
-        <a href="#experience" class="hover:opacity-100 transition-opacity">About me</a>
-        <a href="#projects" class="hover:opacity-100 transition-opacity">Projects</a>
-        <a href="#contact" class="hover:opacity-100 transition-opacity">Contact</a>
+<header class ="w-full xl:w-[1120px] mx-auto px-4 py-4 md:py-5">
+    <nav class = "w-full flex flex-col items-center gap-3 md:flex-row md:items-center md:justify-center md:gap-6 lg:gap-10 opacity-80 text-xs sm:text-sm md:text-base">
+        <div class="flex flex-wrap items-center justify-center gap-3 md:gap-6 lg:gap-10">
+            <a href="#home" class="hover:opacity-100 transition-opacity">Home</a>
+            <a href="#experience" class="hover:opacity-100 transition-opacity">About me</a>
+            <a href="#projects" class="hover:opacity-100 transition-opacity">Projects</a>
+            <a href="#contact" class="hover:opacity-100 transition-opacity">Contact</a>
+        </div>
         <LanguageSelector />
     </nav>
 </header>
