@@ -1,0 +1,77 @@
+---
+import { translations } from "../i18n/trasnlations";
+---
+
+<div class="language-selector">
+  <button id="lang-btn" class="flex items-center gap-2 px-3 py-1 rounded-lg bg-white/10 hover:bg-white/20 transition">
+    <span id="current-lang">EN</span>
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+    </svg>
+  </button>
+</div>
+
+<script>
+import { translations } from "../i18n/trasnlations";
+
+
+  // Obtener idioma guardado o usar inglés por defecto
+  let currentLang = localStorage.getItem('language') || 'en';
+  
+  // Actualizar botón
+  const langBtn = document.getElementById('lang-btn');
+  const currentLangSpan = document.getElementById('current-lang');
+  if (currentLangSpan) {
+    currentLangSpan.textContent = currentLang.toUpperCase();
+  }
+
+  // Función para cambiar idioma
+  function changeLanguage() {
+    currentLang = currentLang === 'en' ? 'es' : 'en';
+    localStorage.setItem('language', currentLang);
+    
+    // Actualizar botón
+    if (currentLangSpan) {
+      currentLangSpan.textContent = currentLang.toUpperCase();
+    }
+    
+    // Actualizar contenido
+    updateContent();
+  }
+
+  // Función para actualizar todo el contenido
+  function updateContent() {
+    const t = translations[currentLang as 'es' | 'en'];
+    
+    // Actualizar navegación
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (!key) return;
+        const keys = key.split('.');
+        let value: any = t;
+      
+      for (const k of keys) {
+        value = value[k];
+      }
+      
+      if (value) {
+        element.textContent = value;
+      }
+    });
+  }
+
+  // Event listener
+  if (langBtn) {
+    langBtn.addEventListener('click', changeLanguage);
+  }
+
+  // Cargar idioma al iniciar
+  document.addEventListener('DOMContentLoaded', updateContent);
+</script>
+
+<style>
+  .language-selector {
+    display: flex;
+    align-items: center;
+  }
+</style>

@@ -26,14 +26,14 @@ import Projects from '../components/Projects.astro';
     	src={profileImg.src}    
     	alt="my photo profile"
      />
-		<h1 class="text-white text-2xl md:text-4xl lg:text-5xl font-bold flex flex-col md:flex-row gap-4 md:gap-x-4 pb-6 lg:pb-10 text-center md:text-left items-center md:items-start">
+		<h1 data-i18n="hero.greeting" class="text-white text-2xl md:text-4xl lg:text-5xl font-bold flex flex-col md:flex-row gap-4 md:gap-x-4 pb-6 lg:pb-10 text-center md:text-left items-center md:items-start">
 			Hey, I'm Alejandro am  Developer from sotware in Colombia'
 			<a href="https://example.com" target="_blank" 
 			rel="noopener" 
 			class = "flex justify-center items-center "
-			 ><Bagde> Available for hire</Bagde></a href="hire me ">
+			 ><Bagde data-i18n="hero.available"> Available for hire</Bagde></a href="hire me ">
 		</h1>
-		<h2 class = "text-lg md:text-xl lg:text-2xl text-wrap max-w-[700px] text-center md:text-left mx-auto md:mx-0">
+		<h2 data-i18n="hero.description" class = "text-lg md:text-xl lg:text-2xl text-wrap max-w-[700px] text-center md:text-left mx-auto md:mx-0">
 			i have with experience in <span class = "opacity-80">Freelances</span> approximately 1 year <br>
 			 as you <span class="text-purple-600/90">Developer Mobile</span> and <span class="text-purple-600/90"> Web</span> with Technologies like <br>	
 		</h2>
@@ -61,7 +61,7 @@ import Projects from '../components/Projects.astro';
 	</SectionContainer>
 	
 	<SectionContainer id ="experience" >
-		<h2 class = "text-xl md:text-2xl font-semibold mb-4 text-center md:text-left">
+		<h2 data-i18n="sections.experience" class = "text-xl md:text-2xl font-semibold mb-4 text-center md:text-left">
 			Experiences Work
 		 <Work class="w-8 h-8 inline-block ml-2"/>
 		</h2>
@@ -69,7 +69,7 @@ import Projects from '../components/Projects.astro';
 	</SectionContainer>
 
 		<SectionContainer id ="projects" >
-		<h2 class = "text-xl md:text-2xl font-semibold mb-4 text-center md:text-left">
+		<h2 data-i18n="sections.projects" class = "text-xl md:text-2xl font-semibold mb-4 text-center md:text-left">
 			my Projects
 		 <Vs class="w-8 h-8 inline-block ml-2"/>
 		</h2>
