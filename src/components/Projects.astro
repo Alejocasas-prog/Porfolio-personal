@@ -1,0 +1,72 @@
+---
+import { promise } from "astro:schema"
+import Github from "../icons/Github.astro"
+import { toAttributeString } from "astro/runtime/server/render/util.js"
+import Otro from "../icons/otro.astro"
+import Tailwinds from "../icons/Iconstail.astro"
+import Javascript from "../icons/Javascript.astro"
+
+const TAGS ={
+
+    ASTRO:{
+        name: 'Astro',
+        class:"bg-orange text-white",
+        icon: Otro
+             },
+    TAIWIND:{
+        name: 'Tailwind CSS',
+        class:"bg-cyan-600 text-white",
+        icon: Tailwinds
+        
+
+    },
+    JAVASCRIPT:{
+        name: 'JavaScript',
+        class:"bg-yellow-400 text-black",
+        icon: Javascript,
+    },
+
+
+}
+
+
+const PROJECTS = [
+    {
+        title: 'Svg - A beautiful library with SVG icons ',
+        description: 'A web application that allows users to track their tasks and manage their time effectively.',
+        link: 'https://vercel.com/geist/introduction',
+        github: 'https://github.com/user/project-one',
+        image: '/projects/svg.webp',
+        tags: [TAGS.ASTRO, TAGS.TAIWIND , TAGS.JAVASCRIPT],
+    },
+    
+]
+---
+
+{
+    PROJECTS.map( ({image ,tags, description, title}) => (
+    <article>
+        <h3 class="text-2xl font-semibold text-purple-600/85 mb-2">{title}</h3>
+        <p class="text-lg mb-4 text-pretty">{description}</p>
+        <ul class=" flex gap-x-3 flex-row mb-4">
+            {
+                tags.map((tag) =>(
+               
+                    <li>
+                         <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
+                        <tag.icon class="size-4" />
+                        {tag.name}
+                          </span>
+                  </li>
+                
+                ))
+            }
+        </ul>
+
+        <img 
+        class="rounded shadow-2xl shadow-white/10  "
+        src={image}
+         alt={`Capture of image project ${image}`}/>
+    </article>
+))
+}

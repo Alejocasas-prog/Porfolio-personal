@@ -1,11 +1,82 @@
 ---
 import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Bagde from '../components/Bagde.astro';
+import profileImg from '../assets/profile.jpg';
+import Github from '../icons/Github.astro';
+import LinkedIn from '../icons/LinkedIn.astro';	
+import Gmail from '../icons/Gmail.astro';
+import Socialpill from '../components/Socialpill.astro';
+import Experiences from '../components/Experiences.astro';
+import SectionContainer from '../components/SectionContainer.astro';
+import Work from '../icons/Work.astro';
+import Vs from '../icons/Vs.astro';
+import Projects from '../components/Projects.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Porfolio Alejandro Dev">
+
+	<main class="px-4">
+		<SectionContainer class = "py-44 pb-32">
+		<img 
+   	 	class ="rounded-full w-20 h-20 mb-4"
+    	src={profileImg.src}    
+    	alt="my photo profile"
+     />
+		<h1 class ="text-white  text-3xl md:text-4xl lg:text-5xl font-bold flex  flex-row gap-x-4 pb-6 lg:pb-10">
+			Hey, I'm Alejandro am  Developer from sotware in Colombia'
+			<a href="https://example.com" target="_blank" 
+			rel="noopener" 
+			class = "flex justify-center items-center "
+			 ><Bagde> Available for hire</Bagde></a href="hire me ">
+		</h1>
+		<h2 class = "text-xl lg:text-2xl  text-wrap max-w-[700px]">
+			i have with experience in <span class = "opacity-80">Freelances</span> approximately 1 year <br>
+			 as you <span class="text-purple-600/90">Developer Mobile</span> and <span class="text-purple-600/90"> Web</span> with Technologies like <br>	
+		</h2>
+
+		<nav class="flex gap-4 mt-8 flex-wrap">
+			<Socialpill href="https://github.com">
+				<Github class="size-4 md:size-6 "/>
+				GitHub
+			</Socialpill>
+			<Socialpill href="https://linkedin.com">
+				<LinkedIn class="size-4 md:size-6 "/>
+				LinkedIn
+			</Socialpill>
+
+			<Socialpill href="https://gmail.com">
+				<Gmail class="size-4 md:size-6"/>
+				Developer@gmail.com
+			</Socialpill>
+				
+			
+
+		</nav>
+			
+		
+	</SectionContainer>
+	
+	<SectionContainer id ="experience" >
+		<h2 class = "text-2xl font-semibold mb-4">
+			Experiences Work
+		 <Work class="w-8 h-8 inline-block ml-2"/>
+		</h2>
+	<Experiences />
+	</SectionContainer>
+
+		<SectionContainer id ="projects" >
+		<h2 class = "text-2xl font-semibold mb-4">
+			my Projects
+		 <Vs class="w-8 h-8 inline-block ml-2"/>
+		</h2>
+	<Projects />
+	</SectionContainer>
+
+	</main>
+
+
 </Layout>

@@ -1,0 +1,42 @@
+---
+import ExperiencesItems from "./ExperiencesItems.astro"
+
+const EXPERIENCES = [
+    {
+        date: 'February 2026',
+        title: 'developer a software for a costmetics store how freelance',
+        description: 'devloper a software for a entrepreneurship for a friend what has a costmetics store in colombia.',
+        link : 'https://example.com',
+        linkText: 'Learn more',
+       
+    },
+    {
+        date: 'November 2025',
+        title: 'developer from software how interhip at my university (FET)',
+         description:'I went developer at my university Fet in it paragraph Tics in colombia.',
+        link : 'https://example.com',
+       
+    },
+    {
+
+        date: 'February 2025',
+        title: 'Application Heiyubai how freelance developer',
+        description: 'I went developer freelance for a cliente from a restaurant in colombia, doing a food delivery app.',
+        link : 'https://example.com',
+        
+        linkText: 'Learn more'
+    }
+]
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700"> 
+    {
+        EXPERIENCES.map(experience => (
+    <li class="mb-10 ms-4">
+        <ExperiencesItems { ...experience }/>
+    </li>
+        ))
+    }                 
+    
+</ol>
+
